@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using TestTaskData.DbContexts;
 
 namespace TestTaskData.Repositories
@@ -57,6 +58,11 @@ namespace TestTaskData.Repositories
         {
             TEntity entity = GetById(id);
             return DbSet.Remove(entity).Entity;
+        }
+
+        public virtual async Task SaveChangesAsync()
+        {
+            await Context.SaveChangesAsync();
         }
     }
 }
