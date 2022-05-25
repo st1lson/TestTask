@@ -21,7 +21,8 @@ namespace TestTaskWebAPI.Controllers
             _dateProcessor = dateProcessor;
         }
 
-        [HttpGet]
+        [HttpPost]
+        [Route("getByDate")]
         public IActionResult GetTimeByDate(GetTimeByDateInput input)
         {
             if (input is null)
@@ -34,7 +35,8 @@ namespace TestTaskWebAPI.Controllers
             return Ok(new GetTimeByDatePayload(input.Date, result));
         }
 
-        [HttpGet]
+        [HttpPost]
+        [Route("getByWeek")]
         public IActionResult GetTimeByWeek(GetTimeByWeekInput input)
         {
             if (input is null)

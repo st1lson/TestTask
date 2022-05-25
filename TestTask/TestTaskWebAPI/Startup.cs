@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,8 +7,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using TestTaskData.DbContexts;
+using TestTaskData.Models;
+using TestTaskData.Repositories;
+using TestTaskServices;
 
-namespace TestTask
+namespace TestTaskWebAPI
 {
     public class Startup
     {
@@ -24,6 +28,12 @@ namespace TestTask
             {
                 options.UseSqlServer(Configuration.GetConnectionString("AppDb"));
             });
+
+            services.AddScoped<DateProcessor>();
+            services.AddScoped<GenericRepository<Project>>();
+            services.AddScoped<EmployeeRepository>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

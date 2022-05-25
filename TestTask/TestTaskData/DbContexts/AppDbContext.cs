@@ -16,18 +16,14 @@ namespace TestTaskData.DbContexts
 
         public DbSet<Role> EmployeeRoles { get; set; }
 
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-
-        }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(
-                    @"Server=(localdb)\mssqllocaldb;Database=test_task;Trusted_connection=True;",
-                    b => b.MigrationsAssembly("../Migrations"));
+                    @"Server=(localdb)\mssqllocaldb;Database=test_task;Trusted_connection=True;");
             }
 
             base.OnConfiguring(optionsBuilder);
@@ -57,7 +53,7 @@ namespace TestTaskData.DbContexts
                 .Entity<ActivityType>()
                 .HasMany(a => a.Works)
                 .WithOne(w => w.ActivityType)
-                .HasForeignKey(w => w.ProjectId);
+                .HasForeignKey(w => w.ActivityTypeId);
 
             base.OnModelCreating(builder);
         }
