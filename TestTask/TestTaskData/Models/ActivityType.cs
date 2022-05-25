@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TestTaskData.Models
 {
@@ -9,5 +10,7 @@ namespace TestTaskData.Models
 
         [Required]
         public string Name { get; set; }
+
+        public List<WorkTime> Works { get; set; } = new();
     }
 }

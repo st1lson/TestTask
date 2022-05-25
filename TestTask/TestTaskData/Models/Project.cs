@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TestTaskData.Models
@@ -15,5 +16,7 @@ namespace TestTaskData.Models
         public DateTime DateStart { get; set; }
 
         public DateTime DateEnd { get; set; }
+
+        public List<WorkTime> Works { get; set; } = new();
     }
 }

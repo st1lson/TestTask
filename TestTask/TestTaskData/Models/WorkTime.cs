@@ -9,7 +9,7 @@ namespace TestTaskData.Models
         public string Id { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public string EmployeeId { get; set; }
 
         [Required]
         public string RoleId { get; set; }
