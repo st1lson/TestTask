@@ -22,7 +22,7 @@ namespace TestTask
         {
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("AppDb"), b => b.MigrationsAssembly("../TestTaskData/Migrations"));
+                options.UseSqlServer(Configuration.GetConnectionString("AppDb"));
             });
 
             services.AddControllers();
