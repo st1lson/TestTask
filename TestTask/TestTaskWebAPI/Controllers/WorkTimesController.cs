@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using Microsoft.AspNetCore.Http;
 using TestTaskData.Repositories;
 using TestTaskServices;
 using TestTaskWebAPI.Data.Inputs;
@@ -21,6 +22,22 @@ namespace TestTaskWebAPI.Controllers
             _dateProcessor = dateProcessor;
         }
 
+        /// <summary>
+        /// Calculates a user's work time on a selected day
+        /// </summary>
+        /// <param name="input">Contains a user id and day</param>
+        /// <returns>Amount of work hours per day</returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Projects
+        ///     {
+        ///         "id": "userId",
+        ///         "date": "2022-05-11"
+        ///     }
+        /// </remarks>
+        /// <response code="200">Returns a number of work hours per day</response>
+        /// <response code="400">If the input is null</response>
         [HttpPost]
         [Route("getByDate")]
         public IActionResult GetTimeByDate(GetTimeByDateInput input)
@@ -35,6 +52,22 @@ namespace TestTaskWebAPI.Controllers
             return Ok(new GetTimeByDatePayload(input.Date, result));
         }
 
+        /// <summary>
+        /// Calculates a user's work time on a selected week
+        /// </summary>
+        /// <param name="input">Contains a user id and week</param>
+        /// <returns>Amount of work hours per week</returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Projects
+        ///     {
+        ///         "id": "userId",
+        ///         "weekNumber": 21
+        ///     }
+        /// </remarks>
+        /// <response code="200">Returns a number of work hours per day</response>
+        /// <response code="400">If the input is null</response>
         [HttpPost]
         [Route("getByWeek")]
         public IActionResult GetTimeByWeek(GetTimeByWeekInput input)

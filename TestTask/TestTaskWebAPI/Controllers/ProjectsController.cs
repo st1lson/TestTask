@@ -23,6 +23,11 @@ namespace TestTaskWebAPI.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Gets all projects
+        /// </summary>
+        /// <returns>An array of projects</returns>
+        /// <response code="200">Returns an array of projects</response>
         [HttpGet]
         public IActionResult Get()
         {
@@ -31,6 +36,14 @@ namespace TestTaskWebAPI.Controllers
                 projects = _projects.Get()
             });
         }
+
+        /// <summary>
+        /// Gets an object by object id
+        /// </summary>
+        /// <param name="id">An object id</param>
+        /// <returns>An object with an equal id property value</returns>
+        /// <response code="200">Returns a project with an equal id property value</response>
+        /// <response code="400">If the input is null</response>
 
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
@@ -47,6 +60,23 @@ namespace TestTaskWebAPI.Controllers
             });
         }
 
+        /// <summary>
+        /// Creates a new project
+        /// </summary>
+        /// <param name="input">Contains project name, start date and end date</param>
+        /// <returns>A created project object</returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Projects
+        ///     {
+        ///         "name": "Someone",
+        ///         "dateStart": "2022-05-05"
+        ///         "dateEnd": "2022-05-25"
+        ///     }
+        /// </remarks>
+        /// <response code="200">Returns a created project</response>
+        /// <response code="400">If the input is null</response>
         [HttpPost]
         public async Task<IActionResult> Create(CreateProjectInput input)
         {
@@ -63,6 +93,24 @@ namespace TestTaskWebAPI.Controllers
             return Ok(new CreateProjectPayload(cratedProject));
         }
 
+        /// <summary>
+        /// Updates a project
+        /// </summary>
+        /// <param name="input">Contains id, project name, start date and end date</param>
+        /// <returns>A updated project object</returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     PUT /Projects
+        ///     {
+        ///         "id": "userId",
+        ///         "name": "Someone",
+        ///         "dateStart": "2022-05-01"
+        ///         "dateEnd": "2022-05-25"
+        ///     }
+        /// </remarks>
+        /// <response code="200">Returns a updated project</response>
+        /// <response code="400">If the input is null</response>
         [HttpPut]
         public async Task<IActionResult> Update(UpdateProjectInput input)
         {
@@ -79,6 +127,21 @@ namespace TestTaskWebAPI.Controllers
             return Ok(new UpdateProjectPayload(updatedProject));
         }
 
+        /// <summary>
+        /// Deletes a project
+        /// </summary>
+        /// <param name="input">Contains project id</param>
+        /// <returns>A deleted project object</returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     DELETE /Projects
+        ///     {
+        ///         "id": "userId"
+        ///     }
+        /// </remarks>
+        /// <response code="200">Returns a deleted project</response>
+        /// <response code="400">If the input is null</response>
         [HttpDelete]
         public async Task<IActionResult> Delete(DeleteProjectInput input)
         {

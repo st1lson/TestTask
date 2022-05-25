@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTaskWebAPI", "TestTaskW
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTaskData", "TestTaskData\TestTaskData.csproj", "{E351A38A-6FDD-4DF0-9A81-33C58A2C6C86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTaskServices", "TestTaskServices\TestTaskServices.csproj", "{8DE041DB-0B7A-46B4-B66D-14C8ADD7D289}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTaskServices", "TestTaskServices\TestTaskServices.csproj", "{8DE041DB-0B7A-46B4-B66D-14C8ADD7D289}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
