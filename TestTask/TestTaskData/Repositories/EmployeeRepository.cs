@@ -12,23 +12,16 @@ namespace TestTaskData.Repositories
 
         }
 
-        public TimeSpan GetTimeTracking(string id)
+        public TimeSpan GetTimeTracking(string id, DateTime date)
         {
-            IQueryable<WorkTime> workTimes = Context.WorkTimes.Where(w => w.EmployeeId == id);
+            IQueryable<WorkTime> workTimes = Context.WorkTimes.Where(w => w.EmployeeId == id && w.Day == date);
 
             return Sum(workTimes);
         }
 
-        public TimeSpan GetTimeTracking(DateTime date)
+        public TimeSpan GetTimeTracking(string id, DateTime startDate, DateTime endDate)
         {
-            IQueryable<WorkTime> workTimes = Context.WorkTimes.Where(w => w.Day == date);
-
-            return Sum(workTimes);
-        }
-
-        public TimeSpan GetTimeTracking(DateTime startDate, DateTime endDate)
-        {
-            IQueryable<WorkTime> workTimes = Context.WorkTimes.Where(w => w.Day >= startDate && w.Day <= endDate);
+            IQueryable<WorkTime> workTimes = Context.WorkTimes.Where(w => w.EmployeeId == id && w.Day >= startDate && w.Day <= endDate);
 
             return Sum(workTimes);
         }
