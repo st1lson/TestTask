@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TestTaskData.Models;
 using TestTaskData.Repositories;
@@ -14,10 +15,10 @@ namespace TestTaskWebAPI.Controllers
     [Route("api/[controller]")]
     public class ProjectsController : Controller
     {
-        private readonly GenericRepository<Project> _projects;
+        private readonly IRepository<Project> _projects;
         private readonly IMapper _mapper;
 
-        public ProjectsController(GenericRepository<Project> projects, IMapper mapper)
+        public ProjectsController(IRepository<Project> projects, IMapper mapper)
         {
             _projects = projects;
             _mapper = mapper;
@@ -31,10 +32,9 @@ namespace TestTaskWebAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(new
-            {
-                projects = _projects.Get()
-            });
+            IEnumerable<Project> projects = _projects.Get();
+
+            return Ok(projects);
         }
 
         /// <summary>
@@ -54,10 +54,7 @@ namespace TestTaskWebAPI.Controllers
                 throw new ArgumentException(id, nameof(id));
             }
 
-            return Ok(new
-            {
-                project
-            });
+            return Ok(project);
         }
 
         /// <summary>

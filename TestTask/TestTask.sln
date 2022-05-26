@@ -12,6 +12,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTaskData", "TestTaskDat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTaskServices", "TestTaskServices\TestTaskServices.csproj", "{8DE041DB-0B7A-46B4-B66D-14C8ADD7D289}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.Tests", "..\TestTask.Tests\TestTask.Tests.csproj", "{45AD4131-0D99-4841-8F59-77CB97A5918C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2D363BFF-016C-4F9A-B716-0CE3FF146F5D} = {2D363BFF-016C-4F9A-B716-0CE3FF146F5D}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +35,10 @@ Global
 		{8DE041DB-0B7A-46B4-B66D-14C8ADD7D289}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DE041DB-0B7A-46B4-B66D-14C8ADD7D289}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DE041DB-0B7A-46B4-B66D-14C8ADD7D289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45AD4131-0D99-4841-8F59-77CB97A5918C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45AD4131-0D99-4841-8F59-77CB97A5918C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45AD4131-0D99-4841-8F59-77CB97A5918C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45AD4131-0D99-4841-8F59-77CB97A5918C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

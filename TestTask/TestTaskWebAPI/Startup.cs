@@ -32,7 +32,7 @@ namespace TestTaskWebAPI
             });
 
             services.AddScoped<DateProcessor>();
-            services.AddScoped<GenericRepository<Project>>();
+            services.AddScoped<IRepository<Project>, GenericRepository<Project>>();
             services.AddScoped<EmployeeRepository>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

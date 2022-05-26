@@ -8,7 +8,7 @@ using TestTaskData.DbContexts;
 
 namespace TestTaskData.Repositories
 {
-    public class GenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected AppDbContext Context { get; }
 
