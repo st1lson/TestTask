@@ -5,7 +5,7 @@ namespace TestTaskServices
 {
     public class DateProcessor
     {
-        public (DateTime, DateTime) GetWeekScopeByWeekNumber(int weekOfYear)
+        public virtual (DateTime, DateTime) GetWeekScopeByWeekNumber(int weekOfYear)
         {
             DateTime jan1 = new(DateTime.Now.Year, 1, 1);
             int daysOffset = DayOfWeek.Monday - jan1.DayOfWeek;

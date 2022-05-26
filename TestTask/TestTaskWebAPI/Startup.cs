@@ -1,6 +1,3 @@
-using System;
-using System.IO;
-using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
 using TestTaskData.DbContexts;
 using TestTaskData.Models;
 using TestTaskData.Repositories;
@@ -33,7 +33,7 @@ namespace TestTaskWebAPI
 
             services.AddScoped<DateProcessor>();
             services.AddScoped<IRepository<Project>, GenericRepository<Project>>();
-            services.AddScoped<EmployeeRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

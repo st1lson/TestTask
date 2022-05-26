@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using Microsoft.AspNetCore.Http;
 using TestTaskData.Repositories;
 using TestTaskServices;
 using TestTaskWebAPI.Data.Inputs;
@@ -13,10 +12,10 @@ namespace TestTaskWebAPI.Controllers
     [Route("api/[controller]")]
     public class WorkTimesController : Controller
     {
-        private readonly EmployeeRepository _employees;
+        private readonly IEmployeeRepository _employees;
         private readonly DateProcessor _dateProcessor;
 
-        public WorkTimesController(EmployeeRepository employees, DateProcessor dateProcessor)
+        public WorkTimesController(IEmployeeRepository employees, DateProcessor dateProcessor)
         {
             _employees = employees;
             _dateProcessor = dateProcessor;

@@ -5,7 +5,7 @@ using TestTaskData.Models;
 
 namespace TestTaskData.Repositories
 {
-    public sealed class EmployeeRepository : GenericRepository<Employee>
+    public class EmployeeRepository : GenericRepository<Employee>, IEmployeeRepository
     {
         public EmployeeRepository(AppDbContext context) : base(context)
         {
