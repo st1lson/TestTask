@@ -29,7 +29,7 @@ namespace TestTaskWebAPI.Controllers
         /// <remarks>
         /// Sample request:
         ///
-        ///     POST /Projects
+        ///     POST /WorkTimes
         ///     {
         ///         "id": "userId",
         ///         "date": "2022-05-11"
@@ -59,7 +59,7 @@ namespace TestTaskWebAPI.Controllers
         /// <remarks>
         /// Sample request:
         ///
-        ///     POST /Projects
+        ///     POST /WorkTimes
         ///     {
         ///         "id": "userId",
         ///         "weekNumber": 21

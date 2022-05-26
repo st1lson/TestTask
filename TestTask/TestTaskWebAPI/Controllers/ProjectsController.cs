@@ -44,7 +44,6 @@ namespace TestTaskWebAPI.Controllers
         /// <returns>An object with an equal id property value</returns>
         /// <response code="200">Returns a project with an equal id property value</response>
         /// <response code="400">If the input is null</response>
-
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {
